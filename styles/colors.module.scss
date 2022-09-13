@@ -1,0 +1,26 @@
+
+/* DARK */
+// backgrounds
+$primary-800: #00011D;
+$primary-600: #14183D;
+$primary-500: #1E2356;
+$primary-400: #0D0F27;
+$primary-200: #5B8CFF;
+$secondary-500: #EFF0FB;
+$secondary-100: #EFF0FB;
+// lines
+$primary-000: #FFFFFF;
+$primary-300: #F8FBFF;
+// texts
+// actions
+$alert-800: #B50329;
+
+
+/* LIGHT */
+// ...
+
+:export {
+  // prefixing variables with 'dark' and 'light' so we can switch theme
+  darkAlert800: $alert-800;
+  
+}

@@ -1,8 +1,36 @@
+@font-face {
+  font-family: 'Prompt Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Prompt Regular'), url('./fonts/Prompt-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'DM Sans Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DM Sans Regular'), url('./fonts/DMSans-Regular.ttf') ;
+}
+
+@font-face {
+  font-family: 'DM Sans Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DM Sans Medium'), url('./fonts/DMSans-Medium.ttf') ;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'DM Sans Regular', Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body[theme-mode="dark"] {
+  --alert-800: #B50329;
+}
+body[theme-mode="light"]{
+  --alert-800: #b87886;
 }
 
 a {
@@ -14,13 +42,6 @@ a {
   box-sizing: border-box;
 }
 
-// DARK THEME LATER, MAYBE :)
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     color-scheme: dark;
-//   }
-//   body {
-//     color: white;
-//     background: black;
-//   }
-// }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Prompt Regular';
+}
