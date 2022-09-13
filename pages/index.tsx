@@ -1,9 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Doughnut from '../components/doughnut'
-import ProgressBar from '../components/progress-bar'
-import Table from '../components/table'
-import styles from '../styles/Home.module.scss'
+import Assets from '../components/assets'
+import styles from '../styles/home.module.scss'
 
 const Home: NextPage = () => {
   return (
@@ -15,11 +13,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Doughnut></Doughnut>
-        {/* <div>
-          A text <ProgressBar></ProgressBar>
-        </div>
-        <Table></Table> */}
+        <h1>A title in Prompt </h1>
+        <Assets />
       </main>
     </div>
   )

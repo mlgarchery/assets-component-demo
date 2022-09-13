@@ -6,20 +6,17 @@ export interface ArcProps {
 }
 
 export default function Arc({center, percentage, offset, strokeColor}: ArcProps) {
-    const strokeDasharray = `${percentage} ${100-percentage}`;
-    const strokeDashoffset = -offset + 25; // 25 base offset so that the Arc start from the top
     return (
         <circle
             cx={center} 
             cy={center} 
-            // 2*pi*r = 100, so we can manipulate units as %
-            r="15.91549430918954"
-            fill="transparent" 
+            r="15.915494309189533" // 2*pi*r = 100, so we can manipulate units as %
+            fill="transparent"
             stroke={strokeColor}
-            strokeWidth={2} 
+            strokeWidth={2.5} 
             strokeLinecap="round" 
-            strokeDasharray={strokeDasharray}
-            strokeDashoffset={strokeDashoffset}
+            strokeDasharray={`${percentage} ${100-percentage}`} // the gap is the rest of the path length
+            strokeDashoffset={-offset + 25}  // 25 base offset so that the Arc starts from the top (clockwise)
         >
         </circle>
     )
