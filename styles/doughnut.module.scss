@@ -1,6 +1,9 @@
 $variable: 500px;
 
 .doughnut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: $variable;
     min-width: 200px;
 }

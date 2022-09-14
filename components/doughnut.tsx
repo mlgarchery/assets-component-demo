@@ -1,11 +1,14 @@
 import Arc from './arc';
 import styles from '../styles/doughnut.module.scss'
+import { VisibilityOff } from '@mui/icons-material';
 
 export default function Doughnut(){
     const viewBoxSize = 40;
 
     return (
-		<svg className={styles.doughnut} width="100%" height="100%" viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} >
+		<div className={styles.doughnut}> 
+		<h4 className={styles.title}><VisibilityOff /> USD Value</h4>
+		<svg  width="100%" height="100%" viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} >
 			{/* Put as many arc as in the input tables*/}
 			<Arc center={viewBoxSize/2} strokeColor={'#42c2d3'} offset={0} percentage={30} />
 			<Arc center={viewBoxSize/2} strokeColor={'#ce4b99'} offset={33} percentage={30} />
@@ -18,5 +21,6 @@ export default function Doughnut(){
 			<Arc center={viewBoxSize/2} strokeColor={'#35632b'} offset={94} percentage={0} />
 			<Arc center={viewBoxSize/2} strokeColor={'#274920'} offset={97} percentage={0} />
 		</svg>
-)
+		</div>
+	)
 }

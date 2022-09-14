@@ -1,4 +1,36 @@
-@import './colors.module.scss';
+.container[theme-mode="dark"] {
+  // backgrounds
+  --primary-800: #00011D;
+  --primary-600: #14183D;
+  --primary-500: #1E2356;
+  --primary-400: #1E2356;
+  --primary-000: #FFFFFF;
+  
+  // actions
+  --alert-800: #B50329;
+}
+
+.container[theme-mode="light"]{
+  // backgrounds
+  --primary-000: #FFFFFF;
+  --primary-100: #FBFBFB;
+  --primary-200: #F7F7F7;
+  
+  --primary-300: #F1F1F1;
+  --secondary-100: #3543C2;
+  --secondary-200: #7A83CD;
+  --secondary-400: #7A83CD;
+  --secondary-600: #7A83CD;
+  --secondary-800: #0D0F27;
+  
+
+  --primary-800: #FFFFFF;
+  --primary-600: #545758;
+  --primary-000: #171717;
+  // actions
+  --alert-800: #B50329;
+  // ..
+}
 
 .container {
   padding: 0 2rem;
@@ -6,22 +38,7 @@
   color: var(--primary-000);
 }
 
-.container[theme-mode="dark"] {
-  --alert-800: #{$dark-alert-800};
-  --primary-800: #{$dark-primary-800};
-  --primary-600: #{$dark-primary-600};
-  --primary-000: #{$dark-primary-000};
-  
-  // ..
-}
 
-.container[theme-mode="light"]{
-  --alert-800: #{$light-alert-800};
-  --primary-800: #{$light-primary-800};
-  --primary-600: #{$light-primary-600};
-  --primary-000: #{$light-primary-000};
-  // ..
-}
 
 .main {
   min-height: 100vh;
