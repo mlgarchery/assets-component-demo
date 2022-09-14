@@ -1,4 +1,3 @@
-import colors from '../styles/colors.module.scss'
 import styles from '../styles/progress-bar.module.scss'
 
 interface ProgressBarProps {
@@ -15,7 +14,7 @@ export default function ProgressBar({percentage}: ProgressBarProps){
             <defs>
                 <linearGradient id="myGradient">
                     <stop offset="60%"  stopColor="gold" />
-                    <stop offset="95%" stopColor='--alert-800' />
+                    <stop offset="95%" stopColor='var(--alert-800)' />
                 </linearGradient>
             </defs>
             <rect x="0" y={textHeight+spacing} width={100} height={barHeight} fill="url('#myGradient')" rx={2}/>

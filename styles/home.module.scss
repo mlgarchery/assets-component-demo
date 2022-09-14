@@ -1,5 +1,17 @@
+@import './colors.module.scss';
+
 .container {
   padding: 0 2rem;
+}
+
+.container[theme-mode="dark"] {
+  --alert-800: #{$dark-alert-800};
+  // ..
+}
+
+.container[theme-mode="light"]{
+  --alert-800: #{$light-alert-800};
+  // ..
 }
 
 .main {

@@ -26,13 +26,6 @@ body {
   font-family: 'DM Sans Regular', Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-body[theme-mode="dark"] {
-  --alert-800: #B50329;
-}
-body[theme-mode="light"]{
-  --alert-800: #b87886;
-}
-
 a {
   color: inherit;
   text-decoration: none;
