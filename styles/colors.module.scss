@@ -1,5 +1,6 @@
 
 /* DARK */
+
 // backgrounds
 $dark-primary-800: #00011D;
 $dark-primary-600: #14183D;
@@ -8,10 +9,17 @@ $dark-primary-400: #0D0F27;
 $dark-primary-200: #5B8CFF;
 $dark-secondary-500: #EFF0FB;
 $dark-secondary-100: #EFF0FB;
+
 // lines
 $dark-primary-000: #FFFFFF;
-$dark-primary-300: #F8FBFF;
+$dark-primary-100: #F8FBFF;
+$dark-primary-300: #EFF0FB;
+
 // texts
+// $dark-primary-000: #FFFFFF;
+// $dark-primary-600: #545758;
+// $dark-primary-300: #EFF0FB;
+
 // actions
 $dark-alert-800: #B50329;
 
@@ -19,6 +27,14 @@ $dark-alert-800: #B50329;
 /* LIGHT */
 // ...
 
+// backgrounds
+$light-primary-800: #FFFFFF;
+
+
 //actions
-$light-alert-800: #e6b6c1;
+$light-alert-800: #B50329;
+
+// texts
+$light-primary-600: #545758;
+$light-primary-000: #171717;
 

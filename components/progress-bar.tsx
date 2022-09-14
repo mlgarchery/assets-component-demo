@@ -13,7 +13,7 @@ export default function ProgressBar({percentage}: ProgressBarProps){
         <svg viewBox={`0 0 100 ${textHeight + spacing +barHeight}`}>
             <defs>
                 <linearGradient id="myGradient">
-                    <stop offset="60%"  stopColor="gold" />
+                    <stop offset="60%"  stopColor='var(--primary-600)' />
                     <stop offset="95%" stopColor='var(--alert-800)' />
                 </linearGradient>
             </defs>
