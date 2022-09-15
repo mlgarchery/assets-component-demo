@@ -9,6 +9,7 @@ export default function ProgressBar({percentage}: ProgressBarProps){
     const spacing = 2;
     const barHeight = 3;
     const cursorSize = 1;
+    const percentageDisplay = percentage.toFixed(2);
     return (
         <svg viewBox={`0 0 100 ${textHeight + spacing +barHeight}`} width='100%'>
             <defs>
@@ -19,7 +20,7 @@ export default function ProgressBar({percentage}: ProgressBarProps){
             </defs>
             <rect x="0" y={textHeight+spacing} width={100} height={barHeight} fill="url('#myGradient')" rx={2}/>
             <rect x={percentage} y={textHeight+spacing} width={cursorSize} height={barHeight} fill="white" />
-            <text x={percentage} y={textHeight} fill='var(--primary-000)' fontSize='5px' textLength={16} dx={-6}>99.20%</text>
+            <text x={percentage} y={textHeight} fill='var(--primary-000)' fontSize='5px' textLength={10} dx={-6}>{percentageDisplay}</text>
         </svg>
     )
 }

@@ -6,14 +6,15 @@ import {
     TableBody, 
     TableRow, 
     TableCell,
-    Tooltip
+    Tooltip,
+    SvgIcon
 } from '@mui/material'
 
 import {InfoOutlined} from "@mui/icons-material"
 
 import styles from '../styles/assets.module.scss'
 import { capitalize } from '../utils/strings';
-import getLogoSvgUrl from '../utils/cdn'
+import TokenIcon from './token-icon'
 
 
 interface Market {
@@ -81,14 +82,14 @@ export default function Assets({borrowCapacity, totalUSD, globalAPY, pool, marke
                 </Tooltip>
             </div>
             
-            <Doughnut/>
+            <Doughnut title="USD Value" inCircleTitle={totalUSD} inCircleSubTitle={globalAPY}/>
 
             <div className={styles.borrowCapacity}>
-                <h3 className={styles.capacityTitle}>A text</h3>
+                <h4 className={styles.capacityTitle}>Borrow Capacity</h4>
                 <Tooltip title="Keep your borrowings reasonable.">
                     <InfoOutlined />
                 </Tooltip>
-                <ProgressBar percentage={20} />
+                <ProgressBar percentage={parseFloat(borrowCapacity)} />
             </div>
             
             <Table>
@@ -99,7 +100,10 @@ export default function Assets({borrowCapacity, totalUSD, globalAPY, pool, marke
                 </TableHead>
                 <TableBody>
                     {marketValues.map(
-                        (market, i) => <TableRow key={i}>{market.map((v, j) => <TableCell key={j}>{v}</TableCell>)}</TableRow>
+                        (market, i) => 
+                            <TableRow key={i}>{
+                                market.map((v, j) => <TableCell key={j}>{j===0 ? <TokenIcon  symbol={v}></TokenIcon>: ''}{v}</TableCell>)}
+                            </TableRow>
                     )}
                 </TableBody>
             </Table>
