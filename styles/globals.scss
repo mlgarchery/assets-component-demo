@@ -9,32 +9,18 @@
   font-family: 'DM Sans Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('DM Sans Regular'), url('./fonts/DMSans-Regular.ttf') ;
+  src: local('DM Sans Regular'), url('./fonts/DMSans-Regular.ttf');
 }
 
 @font-face {
   font-family: 'DM Sans Medium';
   font-style: normal;
   font-weight: normal;
-  src: local('DM Sans Medium'), url('./fonts/DMSans-Medium.ttf') ;
+  src: local('DM Sans Medium'), url('./fonts/DMSans-Medium.ttf');
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'DM Sans Regular', Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Prompt Regular';
 }

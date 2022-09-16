@@ -1,31 +1,36 @@
-import { MOCK_DATA } from '../utils/data/mock'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Assets from '../components/assets'
-import styles from '../styles/home.module.scss'
+import { Switch, Box, ThemeProvider, Stack, Typography, Divider } from '@mui/material'
 import { useState } from 'react'
-import { Switch } from '@mui/material'
+
+import { MOCK_DATA } from '../utils/data/mock'
+import Assets from '../components/assets-overview'
+
+import styles from '../styles/home.module.scss'
+import {darkTheme, lightTheme} from '../styles/themes'
+
+
 
 const Home: NextPage = () => {
 
-  let [mode, setMode] = useState("light");
+  let [theme, setMode] = useState(darkTheme);
   let toggleDarkMode = () => {
-    mode=="dark" ? setMode("light") : setMode("dark")
+    theme === darkTheme ? setMode(lightTheme) : setMode(darkTheme)
   }
 
   return (
-    <div className={styles.container} theme-mode={mode}>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>Assets component demo</title>
         <meta name="description" content="A component" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        Dark Mode
-        <Switch checked={mode==="dark"} onChange={toggleDarkMode} />
+      <Stack className={styles.main} bgcolor="primary.dark">
+        <Typography variant="h4" color="text.primary">Dark Mode</Typography>
+        <Switch checked={theme===darkTheme} onChange={toggleDarkMode} />
         <Assets {...MOCK_DATA} />
-      </main>
-    </div>
+      </Stack>
+    </ThemeProvider>
   )
 }
 

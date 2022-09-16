@@ -20,4 +20,4 @@ export default function Arc({center, percentage, offset, strokeColor}: ArcProps)
         >
         </circle>
     )
-} 
+}
