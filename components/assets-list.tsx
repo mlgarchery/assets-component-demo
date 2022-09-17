@@ -26,7 +26,7 @@ export default function PoolAssetsList({pool, markets}: AssetsListProps){
                 <TableHead>
                     <TableRow sx={{ bgcolor: 'primary.light'}}>
                         {headersLabel.map((header: string, i) => 
-                        <TableCell key={i}>
+                        <TableCell sx={{ borderBottomStyle: 'none' }} key={i}>
                             <Typography variant='h6'>{header}</Typography>
                         </TableCell> 
                         )}
@@ -35,15 +35,15 @@ export default function PoolAssetsList({pool, markets}: AssetsListProps){
                 <TableBody>
                     {markets.map((market, i) => 
                     <TableRow key={i} sx={{bgcolor: i%2==0 ? "primary.main": "primary.light"}}>
-                        <TableCell align="left" sx={{padding: 2}}>
+                        <TableCell align="left" sx={{padding: 2, borderBottomStyle: 'none'}}>
                             <Stack direction="row" alignItems="top" spacing={1}>
                                 <TokenIcon symbol={market.symbol} size={30}></TokenIcon>
                                 <Typography padding={0.5}>{market.symbol}</Typography>
                             </Stack>
                         </TableCell>
-                        <TableCell align="left">{market.borrow}</TableCell>
-                        <TableCell align="left">{`${toPercentage(market.poolAPY)}%`}</TableCell>
-                        <TableCell align="left">{`${toPercentage(market.userAPY)}%`}</TableCell>
+                        <TableCell sx={{ borderBottomStyle: 'none' }} align="left">{market.borrow}</TableCell>
+                        <TableCell sx={{ borderBottomStyle: 'none' }} align="left">{`${toPercentage(market.poolAPY)}%`}</TableCell>
+                        <TableCell sx={{ borderBottomStyle: 'none' }} align="left">{`${toPercentage(market.userAPY)}%`}</TableCell>
                     </TableRow>
                     )}
                 </TableBody>

@@ -11,7 +11,7 @@ export function Arc({percentage, offset, color, strokeWidth}: ArcProps) {
     // value strokeWidth.
     // The added width from the rounded end also caps down the arc size to the strokeWidth.
 	// https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap#round 
-    const strokeDashWidth = percentage-strokeWidth;
+    const strokeDashWidth = percentage===strokeWidth ? 0.1 : percentage-strokeWidth;
 
     return (
         <circle

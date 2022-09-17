@@ -9,7 +9,7 @@ import {
 
 import {InfoOutlined, Add} from "@mui/icons-material"
 
-import { toPercentage } from '../utils/strings';
+import { toPercentage, formatNumber } from '../utils/strings';
 import { AllAsset, Market } from './interfaces/data'
 import { assets } from '../data/assets'
 
@@ -57,7 +57,7 @@ export default function AssetsOverview({borrowCapacity, globalAPY, pool, markets
             <Stack direction="row" justifyContent="center">
                 <Doughnut 
                     title="USD Value" 
-                    inCircleTitle={`$${toPercentage(totalValue)}`} 
+                    inCircleTitle={`$${formatNumber(totalValue)}`} 
                     inCircleSubTitle={`APY: ${toPercentage(globalAPY)}%`}
                     divisions={divisions}
                 />

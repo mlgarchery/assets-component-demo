@@ -43,5 +43,13 @@ export const MOCK_DATA = {
 			userAPY: "0.2737",
 			morphoRewards: "0.12"
 		},
+		{
+			symbol: "DAI",
+			borrow: "100",
+			poolAPY: "0.3205",
+			isMatched: true,
+			userAPY: "0.2737",
+			morphoRewards: "0.12"
+		},
 	]
 }

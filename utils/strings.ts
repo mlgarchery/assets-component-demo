@@ -8,3 +8,9 @@ export const toPercentage = (n: string | number) => {
         n = Number.parseFloat(n)
     return (n * 100).toFixed(2);
 }
+
+export const formatNumber = (n: string | number) => {
+    if(typeof(n)==='string')
+        n = Number.parseFloat(n)
+    return n.toLocaleString('en-US')
+}
