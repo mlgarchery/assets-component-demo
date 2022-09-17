@@ -3,4 +3,8 @@ export const capitalize = (s: string) => {
     return `${s.charAt(0).toUpperCase()}${s.slice(1)}`
 }
 
-export const toPercentage = (s: string) => parseFloat(s).toFixed(4) * 100;
+export const toPercentage = (n: string | number) => {
+    if(typeof(n)==='string')
+        n = Number.parseFloat(n)
+    return (n * 100).toFixed(2);
+}

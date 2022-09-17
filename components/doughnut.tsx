@@ -1,19 +1,68 @@
-import Arc from './arc';
-import { Palette, VisibilityOff } from '@mui/icons-material';
-import { Box, Stack } from '@mui/system';
-import { useTheme } from '@emotion/react';
-import { Typography } from '@mui/material';
+import { Arc, ArcProps } from './arc'
+import { VisibilityOff } from '@mui/icons-material'
+import { Stack } from '@mui/system'
+import { useTheme, Palette } from '@mui/material'
+import { Typography } from '@mui/material'
+
+
+interface DoughnutDivision {
+	percentage: number;
+	color: string;
+}
 
 interface DoughnutProps {
 	title: string;
 	inCircleTitle: string;
 	inCircleSubTitle: string;
+	divisions: Array<DoughnutDivision>;
 }
 
-export default function Doughnut({title, inCircleTitle, inCircleSubTitle}: DoughnutProps){
-    const viewBoxSize = 40;
+function getSortedDisplayblableDivs(divisions: Array<DoughnutDivision>, minPercentage: number){
+	let divs: Array<DoughnutDivision> = []
+	const sortedDivisions= divisions.sort((d1, d2) => d2.percentage - d1.percentage)
+	for(let i=0; i<sortedDivisions.length; i++){
+		divs.push(sortedDivisions[i])
+		// we keep the last 'little' division and not the others
+		// in order to not bloat our doughnut with little dots
+		if(sortedDivisions[i].percentage <= minPercentage){
+			divs[divs.length-1].percentage = minPercentage;
+			break;
+		}
+	}
+	return divs
+}
+
+export default function Doughnut({title, inCircleTitle, inCircleSubTitle, divisions}: DoughnutProps){
+
+	const viewBoxSize = 40;
 	const theme = useTheme();
-	const palette = theme.palette;
+	const palette: Palette = theme.palette;
+
+	let offset = 0;
+	const strokeWidth = 2.4; // thickness of an arc, but also its minimum length !
+	const arcSpacing = 1;
+
+	const divs = getSortedDisplayblableDivs(divisions, strokeWidth);
+	const extraLength = divs.reduce<number>((acc, d) => acc + d.percentage, 0) - 100;
+	const extraLength = divs[divs.length -1].percentage ==strokeWidth ?
+	console.log(extraLength);
+	const ratio = (100 - divs.length * arcSpacing - extraLength ) / 100;
+
+	let arcs = divs.map<ArcProps>(
+		(d) => {
+			if(d.color === "")
+			console.log("start offset", offset, "percentage", d.percentage);
+			let arc =  {
+				color: d.color,
+				percentage: d.percentage === strokeWidth ? strokeWidth : d.percentage * ratio,
+				offset,
+				strokeWidth
+			};
+			offset += d.percentage * ratio + arcSpacing;
+			console.log("end offset", offset);
+			return arc;
+		}
+	);
 
     return (
 		<Stack maxWidth={300}>
@@ -21,42 +70,32 @@ export default function Doughnut({title, inCircleTitle, inCircleSubTitle}: Dough
 				<VisibilityOff />
 				<Typography component="h3">{title}</Typography>
 			</Stack>
-			<Box>
-				<svg width="100%" height="100%" viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} >
-					{/* Put as many arc as in the input tables*/}
-					<Arc center={viewBoxSize/2} strokeColor={'#42c2d3'} offset={0} percentage={30} />
-					<Arc center={viewBoxSize/2} strokeColor={'#ce4b99'} offset={33} percentage={30} />
-					<Arc center={viewBoxSize/2} strokeColor={'#6cc755'} offset={66} percentage={10} />
-					<Arc center={viewBoxSize/2} strokeColor={'#6cc755'} offset={79} percentage={0} />
-					<Arc center={viewBoxSize/2} strokeColor={'#5ba748'} offset={82} percentage={0} />
-					<Arc center={viewBoxSize/2} strokeColor={'#549b42'} offset={85} percentage={0} />
-					<Arc center={viewBoxSize/2} strokeColor={'#448035'} offset={88} percentage={0} />
-					<Arc center={viewBoxSize/2} strokeColor={'#3b6e2f'} offset={91} percentage={0} />
-					<Arc center={viewBoxSize/2} strokeColor={'#35632b'} offset={94} percentage={0} />
-					<Arc center={viewBoxSize/2} strokeColor={'#274920'} offset={97} percentage={0} />
-					<text 
-						x="50%" 
-						y="50%"
-						textAnchor='middle'
-						fill={palette.text.primary}
-						fontSize={viewBoxSize/12}
-						fontFamily="Prompt Regular"
-					>
-						{inCircleTitle}
-					</text>
-					<text 
-						x="50%" 
-						y="50%"
-						textAnchor='middle'
-						dy={viewBoxSize/15}
-						fill={palette.text.primary}
-						fontSize={viewBoxSize/15} 
-						fontFamily="Prompt Regular"
-					>
-						{inCircleSubTitle}
-					</text>
-				</svg>
-			</Box>
+			<svg width="100%" height="100%" viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} >
+				{arcs.map((arcProps, i)=> 
+				<Arc {...arcProps} key={i} />
+				)}
+				<text 
+					x="50%" 
+					y="50%"
+					textAnchor='middle'
+					fill={palette.text.primary}
+					fontSize={viewBoxSize/12}
+					fontFamily="Prompt Regular"
+				>
+					{inCircleTitle}
+				</text>
+				<text 
+					x="50%" 
+					y="50%"
+					textAnchor='middle'
+					dy={viewBoxSize/15}
+					fill={palette.grey[300]}
+					fontSize={viewBoxSize/18} 
+					fontFamily="Prompt Regular"
+				>
+					{inCircleSubTitle}
+				</text>
+			</svg>
 		</Stack>
 	)
 }

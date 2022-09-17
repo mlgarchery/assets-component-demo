@@ -1,12 +1,12 @@
 import { createTheme } from "@mui/material";
-import { purple, red, blue, green} from "@mui/material/colors";
+import { purple, grey, blue } from "@mui/material/colors";
 
 export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      light: '#1E2356',
-      main: '#14183D',
+      light: '#14183D',
+      main: '#0D0F27',
       dark: '#00011D',
     },
     secondary: {
@@ -55,7 +55,8 @@ export const darkTheme = createTheme({
     },
     subtitle1: {
       fontFamily: "Prompt Regular",
-      fontSize: 14,
+      fontSize: 16,
+      color: grey[500]
     },
   }
 });

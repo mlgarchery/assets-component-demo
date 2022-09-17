@@ -1,7 +1,6 @@
 export const MOCK_DATA = {
 	borrowCapacity: "45.2077777777",
-	totalUSD: "2808.69",
-	globalAPY: "0.0258",
+	globalAPY: "0.0258", // TODO: remove
 	pool: "compound",
 	markets: [
 		{
@@ -25,8 +24,24 @@ export const MOCK_DATA = {
 			borrow: "0.06",
 			poolAPY: "0.3205",
 			isMatched: true,
-			userAPY: "27.37",
+			userAPY: "0.2737",
 			morphoRewards: "0.12"
-		}
+		},
+		{
+			symbol: "MATIC",
+			borrow: "100",
+			poolAPY: "0.3205",
+			isMatched: true,
+			userAPY: "0.2737",
+			morphoRewards: "0.12"
+		},	
+		{
+			symbol: "CRV",
+			borrow: "100",
+			poolAPY: "0.3205",
+			isMatched: true,
+			userAPY: "0.2737",
+			morphoRewards: "0.12"
+		},
 	]
 }

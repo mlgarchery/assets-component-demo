@@ -1,14 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Switch, Box, ThemeProvider, Stack, Typography, Divider } from '@mui/material'
+import { Switch, ThemeProvider, Stack, Typography } from '@mui/material'
 import { useState } from 'react'
 
-import { MOCK_DATA } from '../utils/data/mock'
-import Assets from '../components/assets-overview'
+import { MOCK_DATA } from '../data/mock'
+import AssetsOverview from '../components/assets-overview'
 
 import styles from '../styles/home.module.scss'
 import {darkTheme, lightTheme} from '../styles/themes'
-
 
 
 const Home: NextPage = () => {
@@ -25,10 +24,10 @@ const Home: NextPage = () => {
         <meta name="description" content="A component" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Stack className={styles.main} bgcolor="primary.dark">
+      <Stack component="main" className={styles.main} bgcolor="primary.dark">
         <Typography variant="h4" color="text.primary">Dark Mode</Typography>
         <Switch checked={theme===darkTheme} onChange={toggleDarkMode} />
-        <Assets {...MOCK_DATA} />
+        <AssetsOverview { ...MOCK_DATA } />
       </Stack>
     </ThemeProvider>
   )
