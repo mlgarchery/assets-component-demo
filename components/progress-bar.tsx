@@ -12,14 +12,14 @@ export default function ProgressBar({percentage, gradientStart, gradientStop}: P
     const theme: Theme = useTheme();
     const palette = theme.palette;
     const textHeight = 5;
-    const spacing = 2;
+    const vSpacing = 2;
     const barHeight = 3;
     const cursorSize = 1;
     const label = `${percentage.toFixed(2)}%`;
 
     return (
         <Box>
-            <svg viewBox={`0 0 100 ${ 2*textHeight + spacing + barHeight}`} width='100%'>
+            <svg viewBox={`0 0 100 ${ 2*textHeight + vSpacing + barHeight}`} width='100%'>
                 <defs>
                     <linearGradient id="myGradient">
                         <stop offset={gradientStart}  stopColor={palette.primary.light} />
@@ -27,13 +27,14 @@ export default function ProgressBar({percentage, gradientStart, gradientStop}: P
                     </linearGradient>
                 </defs>
 
-                <rect x="10%" y={textHeight+spacing} width={80} height={barHeight} fill="url('#myGradient')" rx={2}/>
-                <rect x={percentage*0.8+20} y={textHeight+spacing} width={cursorSize} height={barHeight} fill={palette.text.primary} />
+                {/* we let margin on the left and right sides for the text to be displayed entirely in the case its 0% or 100% */}
+                <rect x="14" y={textHeight+vSpacing} width={72} height={barHeight} fill="url('#myGradient')" rx={2}/>
+                <rect x={percentage*0.72+14} y={textHeight+vSpacing} width={cursorSize} height={barHeight} fill={palette.text.primary} />
                 <text 
-                    x={percentage*0.8+20}
+                    x={percentage*0.72+14}
                     y={textHeight}
                     fill={palette.text.primary} 
-                    fontSize='5px' 
+                    fontSize='5' 
                     fontFamily='DM Sans Regular'
                     dx={-label.length}
                 >

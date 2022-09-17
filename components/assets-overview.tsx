@@ -68,7 +68,7 @@ export default function AssetsOverview({borrowCapacity, globalAPY, pool, markets
                 <Tooltip title="Keep your borrowings reasonable.">
                     <InfoOutlined />
                 </Tooltip>
-                <ProgressBar percentage={100} gradientStart="55%" gradientStop="100%"/>
+                <ProgressBar percentage={parseFloat(borrowCapacity)} gradientStart="55%" gradientStop="100%"/>
             </Stack>
             
             <AssetsList pool={pool} markets={markets} />

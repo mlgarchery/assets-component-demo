@@ -44,12 +44,10 @@ export default function Doughnut({title, inCircleTitle, inCircleSubTitle, divisi
 
 	const divs = getSortedDisplayblableDivs(divisions, strokeWidth);
 	const extraLength = divs.reduce<number>((acc, d) => acc + d.percentage, 0) - 100;
-	console.log(extraLength);
 	const ratio = (100 - divs.length * arcSpacing - extraLength ) / 100;
 
 	let arcs = divs.map<ArcProps>(
 		(d) => {
-			console.log("start offset", offset, "percentage", d.percentage);
 			let arc =  {
 				color: d.color,
 				percentage: d.percentage === strokeWidth ? strokeWidth : d.percentage * ratio,
@@ -57,7 +55,6 @@ export default function Doughnut({title, inCircleTitle, inCircleSubTitle, divisi
 				strokeWidth
 			};
 			offset += d.percentage * ratio + arcSpacing;
-			console.log("end offset", offset);
 			return arc;
 		}
 	);
