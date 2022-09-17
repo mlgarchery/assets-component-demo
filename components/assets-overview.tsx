@@ -49,7 +49,7 @@ export default function AssetsOverview({borrowCapacity, globalAPY, pool, markets
                 <Typography variant='h1' >
                     {borrowCapacity ? "Borrow": "Supply"}
                     </Typography>
-                <Tooltip color='black' title="Hey look at those assets you borrowed !">
+                <Tooltip title="Hey look at those assets you borrowed !" sx={{ color: 'grey.500', width: 20}} >
                     <InfoOutlined />
                 </Tooltip>
             </Stack>
@@ -65,7 +65,7 @@ export default function AssetsOverview({borrowCapacity, globalAPY, pool, markets
 
             <Stack direction="row" flexGrow={2} alignItems="center" spacing={1} >
                 <Typography variant="h3">Borrow Capacity</Typography>
-                <Tooltip title="Keep your borrowings reasonable.">
+                <Tooltip title="Keep your borrowings reasonable." sx={{ color: 'grey.500', width: 20}}>
                     <InfoOutlined />
                 </Tooltip>
                 <ProgressBar percentage={parseFloat(borrowCapacity)} gradientStart="55%" gradientStop="100%"/>

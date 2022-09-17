@@ -6,7 +6,6 @@ import { useState } from 'react'
 import { MOCK_DATA } from '../data/mock'
 import AssetsOverview from '../components/assets-overview'
 
-import styles from '../styles/home.module.scss'
 import {darkTheme, lightTheme} from '../styles/themes'
 
 
@@ -24,9 +23,9 @@ const Home: NextPage = () => {
         <meta name="description" content="A component" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Stack component="main" className={styles.main} bgcolor="primary.dark">
+      <Stack component="main" bgcolor="primary.dark" padding={2} justifyContent="center">
         <Typography variant="h4" color="text.primary">Dark Mode</Typography>
-        <Switch checked={theme===darkTheme} onChange={toggleDarkMode} />
+        <Switch color="secondary" checked={theme===darkTheme} onChange={toggleDarkMode} />
         <AssetsOverview { ...MOCK_DATA } />
       </Stack>
     </ThemeProvider>

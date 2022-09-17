@@ -61,7 +61,7 @@ export default function Doughnut({title, inCircleTitle, inCircleSubTitle, divisi
 
     return (
 		<Stack maxWidth={300}>
-			<Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
+			<Stack direction="row" justifyContent="center" alignItems="center" spacing={1} color='grey.500'>
 				<VisibilityOff />
 				<Typography component="h3">{title}</Typography>
 			</Stack>

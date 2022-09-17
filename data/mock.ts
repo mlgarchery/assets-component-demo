@@ -1,6 +1,6 @@
 export const MOCK_DATA = {
 	borrowCapacity: "45.2077777777",
-	globalAPY: "0.0258", // TODO: remove
+	globalAPY: "0.0258",
 	pool: "compound",
 	markets: [
 		{
