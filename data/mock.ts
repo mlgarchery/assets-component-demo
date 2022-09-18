@@ -29,7 +29,7 @@ export const MOCK_DATA = {
 		},
 		{
 			symbol: "MATIC",
-			borrow: "100",
+			borrow: "400",
 			poolAPY: "0.3205",
 			isMatched: true,
 			userAPY: "0.2737",
@@ -37,7 +37,7 @@ export const MOCK_DATA = {
 		},	
 		{
 			symbol: "CRV",
-			borrow: "100",
+			borrow: "70",
 			poolAPY: "0.3205",
 			isMatched: true,
 			userAPY: "0.2737",
@@ -45,7 +45,7 @@ export const MOCK_DATA = {
 		},
 		{
 			symbol: "DAI",
-			borrow: "100",
+			borrow: "30",
 			poolAPY: "0.3205",
 			isMatched: true,
 			userAPY: "0.2737",
